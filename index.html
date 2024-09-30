@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Page with Trustpilot iframe</title>
+    <title>Mobile Page with Rounded Action Sheet</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,6 +41,9 @@
             transition: bottom 0.3s ease-out;
             display: flex;
             flex-direction: column;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            overflow: hidden;
         }
         .action-sheet.active {
             bottom: 0;
@@ -51,9 +54,19 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
-            padding: 10px;
+            padding: 15px;
+            z-index: 2;
+            color: #3a4850;
+        }
+        .iframe-container {
+            position: relative;
+            flex-grow: 1;
+            overflow: hidden;
         }
         iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             border: none;
@@ -65,7 +78,9 @@
 
     <div class="action-sheet" id="actionSheet">
         <button class="close-button" id="closeActionSheet">&times;</button>
-        <iframe src="https://www.trustpilot.com/evaluate/embed/www.glassesusa.com"></iframe>
+        <div class="iframe-container">
+            <iframe src="https://www.trustpilot.com/evaluate/embed/www.glassesusa.com"></iframe>
+        </div>
     </div>
 
     <script>
